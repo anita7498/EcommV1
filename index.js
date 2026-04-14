@@ -6,11 +6,6 @@ import http from 'http';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
-// import { schema, resolvers } from "./comp/index.js";
-
-// import {products} from './mockData.js'
-// import { connectDB } from "./configDB.js"
-
 // The GraphQL schema
 const typeDefs = `#graphql
   type Query {
@@ -40,11 +35,8 @@ app.use(
   cors(),
   bodyParser.json(),
   expressMiddleware(server, {
-    // context: () => { return {products}}
   }),
 );
-
-// connectDB();
 
 await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
 console.log(`🚀 Server ready at http://localhost:4000`);    
