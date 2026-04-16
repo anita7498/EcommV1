@@ -6,26 +6,15 @@ import http from 'http';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
-// The GraphQL schema
-const typeDefs = `#graphql
-  type Query {
-    hello: String
-  }
-`;
+import { schema, resolvers } from './Models/index.js';
 
-// A map of functions which return data for the schema.
-const resolvers = {
-  Query: {
-    hello: () => 'world',
-  },
-};
 
 const app = express();
 const httpServer = http.createServer(app);
 
 // Set up Apollo Server
 const server = new ApolloServer({
-  typeDefs,
+  typeDefs: schema,
   resolvers,
   plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
