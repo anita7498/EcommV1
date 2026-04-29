@@ -7,6 +7,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 
 import { schema, resolvers } from './Models/index.js';
+import { authContext } from './Models/context/authContext.js';
 
 
 const app = express();
@@ -24,6 +25,9 @@ app.use(
   cors(),
   bodyParser.json(),
   expressMiddleware(server, {
+    context: async ({ req }) => {
+      return await authContext(req);
+    }
   }),
 );
 
