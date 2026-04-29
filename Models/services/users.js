@@ -1,11 +1,11 @@
 import { users } from '../../mockData.js'
 
 const getUserService = () => {
-    const data = users.map((elem) => {
+    const data = users.map(({id, name, email}) => {
         return {
-            id: elem.id,
-            name: elem.name,
-            email: elem.email
+            id,
+            name,
+            email
         };
     })
 
