@@ -18,6 +18,12 @@ const server = new ApolloServer({
   typeDefs: schema,
   resolvers,
   plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+  // formatError: (err) => {
+  //   return {
+  //     message: err.message,
+  //     code: err.extensions?.code || "INTERNAL_SERVER_ERROR"
+  //   };
+  // }
 });
 await server.start();
 
