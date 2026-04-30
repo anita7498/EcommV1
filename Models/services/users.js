@@ -1,7 +1,7 @@
-import { users } from '../../mockData.js'
+import { users, orders } from '../../mockData.js'
 
 const getUserService = () => {
-    const data = users.map(({id, name, email}) => {
+    const data = users.map(({ id, name, email }) => {
         return {
             id,
             name,
@@ -12,4 +12,20 @@ const getUserService = () => {
     return data;
 }
 
-export { getUserService };
+const getViewerService = (userid) => {
+    const viewerDetail = users.find((elem) => elem.id == userid)
+    return {
+        id: viewerDetail.id,
+        name: viewerDetail.name,
+        email: viewerDetail.email,
+    };
+
+}
+
+const getOrderService = (id) => {
+    const order = orders.filter((elem) => elem.userId == id)
+    return order;
+
+}
+
+export { getUserService, getViewerService, getOrderService };

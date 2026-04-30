@@ -1,54 +1,39 @@
 const users = [
+  { "id": "qwerty12345",
+    "name": "Test Sharma",
+    "email": "test@gmail.com",
+    "password": "1234"
+  },
   {
     "id": "1",
     "name": "Amit Sharma",
     "email": "amit.sharma@example.com",
+    "password": "abc1234"
   },
   {
     "id": "2",
     "name": "Priya Singh",
     "email": "priya.singh@example.com",
+    "password": "def1234"
   },
   {
     "id": "3",
     "name": "Rahul Verma",
     "email": "rahul.verma@example.com",
+    "password": "ghi1234"
   },
   {
     "id": "4",
     "name": "Sneha Gupta",
     "email": "sneha.gupta@example.com",
+    "password": "jkl1234"
   },
   {
     "id": "5",
     "name": "Ankit Kumar",
     "email": "ankit.kumar@example.com",
+    "password": "mno1234"
   },
-  {
-    "id": "6",
-    "name": "Pooja Yadav",
-    "email": "pooja.yadav@example.com",
-  },
-  {
-    "id": "7",
-    "name": "Vikash Patel",
-    "email": "vikash.patel@example.com",
-  },
-  {
-    "id": "8",
-    "name": "Neha Mishra",
-    "email": "neha.mishra@example.com",
-  },
-  {
-    "id": "9",
-    "name": "Rohit Das",
-    "email": "rohit.das@example.com",
-  },
-  {
-    "id": "10",
-    "name": "Kavita Joshi",
-    "email": "kavita.joshi@example.com",
-  }
 ]
 
 const orders = [
@@ -86,12 +71,28 @@ const orders = [
   },
   {
     "id": "105",
-    "userId": "3",
+    "userId": "4",
     "product": "Tablet",
     "price": 18000,
     "status": "DELIVERED",
     "createdAt": "2026-04-18"
-  }
+  },
+  {
+    "id": "106",
+    "userId": "qwerty12345",
+    "product": "Laptop",
+    "price": 55000,
+    "status": "DELIVERED",
+    "createdAt": "2026-04-01"
+  },
+  {
+    "id": "107",
+    "userId": "qwerty12345",
+    "product": "Wireless Mouse",
+    "price": 1200,
+    "status": "DELIVERED",
+    "createdAt": "2026-04-10"
+  },
 ]
 
 const wishlists = [

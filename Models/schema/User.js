@@ -18,7 +18,7 @@ type Order {
 
 type Query {
     getUser: [User]
-    viewer: [User]
+    viewer: User
 }
 
 `;

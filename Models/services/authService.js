@@ -3,11 +3,12 @@ import { generateToken } from "../authUtil/generateToken.js";
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import { users as userdb } from "../../mockData.js";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 function authLoginService({ email, password }) {
-    const userdb = readJSON(path.join(__dirname, "../authUtil/users.json"));
     const user = userdb.find(
         elem => elem.email === email && elem.password === password
     );

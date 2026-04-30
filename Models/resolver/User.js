@@ -1,4 +1,4 @@
-import { getUserService } from '../services/users.js'
+import { getUserService, getViewerService, getOrderService } from '../services/users.js'
 
 const UserResolver = {
     Query: {
@@ -7,7 +7,13 @@ const UserResolver = {
         },
 
         viewer: async (_,__,context) => {
-            console.log(context);
+            return await getViewerService(context.userId);
+        }
+    },
+
+    User: {
+        order: async (parent) => {
+            return await getOrderService(parent.id);
         }
     }
 }
