@@ -17,6 +17,7 @@ const AuthSchema = `
 
     type Mutation {
         login(input: UserCredential): AuthPayload
+        logout: Boolean
   }
 
 `

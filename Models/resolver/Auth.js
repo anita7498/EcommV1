@@ -1,5 +1,5 @@
 import { GraphQLError } from "graphql";
-import { authLoginService } from "../services/authService.js";
+import { authLoginService, authLogoutService } from "../services/authService.js";
 import { userInfo } from "os";
 
 const AuthResolver = {
@@ -30,6 +30,10 @@ const AuthResolver = {
                 }
             }
         },
+
+        logout: async (parent, args, context) => {
+            return await authLogoutService(context.token);
+        }
 
     }
 };

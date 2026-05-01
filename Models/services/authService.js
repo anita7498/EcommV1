@@ -55,4 +55,15 @@ function authLoginService({ email, password }) {
     }
 }
 
-export { authLoginService }
+function authLogoutService(token) {
+      if (!token) return false;
+
+      let sessions = readJSON(path.join(__dirname, "../authUtil/sessions.json"));
+      sessions = sessions.filter(elem => elem.token !== token);
+      writeJSON(path.join(__dirname, "../authUtil/sessions.json"), sessions);
+
+      return true;
+
+}
+
+export { authLoginService, authLogoutService }
