@@ -1,6 +1,5 @@
 import { GraphQLError } from "graphql";
 import { authLoginService, authLogoutService } from "../services/authService.js";
-import { userInfo } from "os";
 
 const AuthResolver = {
 

@@ -2,7 +2,6 @@ import { error } from "console";
 import { readJSON } from "../authUtil/fileHelper.js";
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { userInfo } from "os";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
