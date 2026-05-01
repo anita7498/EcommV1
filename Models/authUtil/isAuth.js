@@ -8,6 +8,13 @@ function isAuthenticated(context) {
             }
         });
     }
+    if (context.userId && context.expired) {
+        throw new GraphQLError("Session Expired, Please login", {
+            extensions: {
+                code: "UNAUTHENTICATED"
+            }
+        });
+    }
 }
 
 export default isAuthenticated;

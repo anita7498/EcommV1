@@ -4,14 +4,6 @@
     "userId": "qwerty12345"
   },
   {
-    "token": "245859b6ec882efa32d685e7cac36b062e328fbf522d48d84c3a1f233fd7b2f7",
-    "userId": "qwerty12345"
-  },
-  {
-    "token": "903d466a0c410f703fb159544a86a0b993bb5017ae16bd8648bb0dea953f79a3",
-    "userId": "1"
-  },
-  {
     "token": "71b6957edeb33fdb8c69d3b4f2bf59f37e55370438ce52dcda96b3bfea69c7c1",
     "userId": "1"
   },
@@ -22,5 +14,10 @@
   {
     "token": "10103c02ff662889f5cd72ab5e7bc46f7609f54396b3a5374fa506bc0ee9782f",
     "userId": "3"
+  },
+  {
+    "token": "9514b02d29337ce99f7c6eff95e6ba74e5d628f2088ade515ddd39fb539f8eda",
+    "userId": "qwerty12345",
+    "expiresAt": 1777652708227
   }
 ]

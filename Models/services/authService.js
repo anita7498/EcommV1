@@ -22,7 +22,7 @@ function authLoginService({ email, password }) {
         }
         const token = generateToken();
         const sessions = readJSON(path.join(__dirname, "../authUtil/sessions.json"));
-        sessions.push({ token, userId: user.id });
+        sessions.push({ token, userId: user.id, expiresAt: Date.now() + 1000 * 60 * 60 });
         const flag = writeJSON(path.join(__dirname, "../authUtil/sessions.json"), sessions);
         if (flag) {
             const updatedSessions = readJSON(path.join(__dirname, "../authUtil/sessions.json"));
