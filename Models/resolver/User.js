@@ -10,11 +10,17 @@ const UserResolver = {
         viewer: async (_,__,context) => {
             isAuthenticated(context);
             return await getViewerService(context.userId);
+        },
+
+        getMyOrders: async (parent, args, context) => {
+            isAuthenticated(context);
+            return await getOrderService(context.userId, args);
         }
+
     },
 
     User: {
-        order: async (parent) => {
+        orders: async (parent) => {
             return await getOrderService(parent.id);
         }
     }

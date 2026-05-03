@@ -22,8 +22,19 @@ const getViewerService = (userid) => {
 
 }
 
-const getOrderService = (id) => {
-    const order = orders.filter((elem) => elem.userId == id)
+const getOrderService = (id, { filter = {} } = {}) => {
+
+    let order = orders.filter((elem) => elem.userId == id)
+
+    //Filteration
+    if(filter?.status){
+        order = order.filter((elem) => elem.status == filter.status.toUpperCase())
+    }
+
+    if(filter?.minPrice){
+        order = order.filter((elem) => elem.price >= filter.minPrice)
+    }
+
     return order;
 
 }

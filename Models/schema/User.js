@@ -4,7 +4,7 @@ type User {
     id: ID!,
     name: String!,
     email: String!,
-    order: [Order]
+    orders: [Order]
 }
 
 type Order {
@@ -13,12 +13,17 @@ type Order {
     price: Int!,
     status: String!,
     createdAt: String
+}
 
+input OrderFilter {
+    status: String,
+    minPrice: Int
 }
 
 type Query {
     getUser: [User]
     viewer: User
+    getMyOrders(filter: OrderFilter): [Order]
 }
 
 `;
