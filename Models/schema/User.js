@@ -17,7 +17,13 @@ type Order {
 
 input OrderFilter {
     status: String,
-    minPrice: Int
+    minPrice: Int,
+    date: FilterDate
+}
+
+input FilterDate {
+    startDate: String,
+    endDate: String
 }
 
 type Query {
