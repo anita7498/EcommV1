@@ -25,9 +25,10 @@ const getViewerService = (userid) => {
 
 const getOrderService = (id, args = {}) => {
 
-    const { filter = {} } = args
+    const { filter = {}, pagination = {} } = args
     const { status, minPrice, date = {} } = filter
     const { startDate, endDate } = date
+    const { limit = 10, offset = 0 } = pagination
 
     let order = orders.filter((elem) => elem.userId == id)
 
@@ -68,6 +69,9 @@ const getOrderService = (id, args = {}) => {
             return true;
         })
     }
+
+    // Pagination
+    order = order.slice(offset, offset+limit)
 
     return order;
 

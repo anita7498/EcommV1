@@ -26,10 +26,16 @@ input FilterDate {
     endDate: String
 }
 
+input PaginationInput {
+    limit: Int,
+    offset: Int
+
+}
+
 type Query {
     getUser: [User]
     viewer: User
-    getMyOrders(filter: OrderFilter): [Order]
+    getMyOrders(filter: OrderFilter, pagination: PaginationInput): [Order]
 }
 
 `;
