@@ -4,7 +4,7 @@ type User {
     id: ID!,
     name: String!,
     email: String!,
-    orders: [Order]
+    orders: OrderResponse
 }
 
 type Order {
@@ -28,16 +28,31 @@ input FilterDate {
 
 input PaginationInput {
     limit: Int,
-    offset: Int
+    page: Int
 
+}
+
+type PaginationMeta {
+    totalRecord: Int!
+    page: Int!
+    limit: Int!
+    totalPages: Int!
+    hasNext: Boolean!
+    hasPrev: Boolean!
+    remaining: Int!
+}
+
+type OrderResponse {
+    data: [Order]!
+    meta: PaginationMeta!
 }
 
 type Query {
     getUser: [User]
     viewer: User
-    getMyOrders(filter: OrderFilter, pagination: PaginationInput): [Order]
+    getMyOrders(filter: OrderFilter, pagination: PaginationInput): OrderResponse!
 }
 
 `;
 
-export {UserSchema}
+export { UserSchema }

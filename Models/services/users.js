@@ -1,5 +1,6 @@
 import { users, orders } from '../../mockData.js'
 import isValidDate from '../authUtil/dateValidator.js';
+import { getPagination, getPaginationMeta } from '../authUtil/pagination.js';
 
 const getUserService = () => {
     const data = users.map(({ id, name, email }) => {
@@ -28,7 +29,7 @@ const getOrderService = (id, args = {}) => {
     const { filter = {}, pagination = {} } = args
     const { status, minPrice, date = {} } = filter
     const { startDate, endDate } = date
-    const { limit = 10, offset = 0 } = pagination
+    const { limit = 10, page = 1 } = pagination
 
     let order = orders.filter((elem) => elem.userId == id)
 
@@ -71,9 +72,15 @@ const getOrderService = (id, args = {}) => {
     }
 
     // Pagination
-    order = order.slice(offset, offset+limit)
+        const totalRecord = order.length
+        const { safePage, limit: safeLimit, safeSkip } = getPagination(page, limit, totalRecord)
+        order = order.slice(safeSkip, safeSkip + safeLimit);
+        const metaData = getPaginationMeta(totalRecord, safePage, safeLimit, safeSkip, order.length)
 
-    return order;
+    return {
+        data: order,
+        meta: metaData
+    };    
 
 }
 
